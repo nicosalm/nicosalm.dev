@@ -1,4 +1,4 @@
-# nick.winans.io
+# nicosalm.dev
 
 This is my personal website, built with [Astro](https://astro.build).
 

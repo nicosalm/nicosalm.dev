@@ -8,10 +8,10 @@ await Promise.all(allPosts.map(async (post) => {
   post.frontmatter.hero = (await heroes[`.${post.url}/hero.png`]()).default;
 }));
 ---
-<Layout title="Blog" description="Nick Winans's Blog">
+<Layout title="Blog" description="Nico's Blog">
 	<main class="container max-w-screen-xl mx-auto">
 		<h1 class="text-5xl text-center pb-2 font-display">Blog</h1>
-    <p class="text-center">Thoughts and what I'm working on.</p>
+    <p class="text-center">Hot takes and cool things.</p>
     <ul class="grid grid-cols-[repeat(auto-fit,_384px)] justify-center gap-8 p-8">
       {allPosts.map((post, index) => (
         <li class="card hover:shadow-lg transition-all shadow w-96 bg-base-100 dark:bg-neutral overflow-hidden group">
