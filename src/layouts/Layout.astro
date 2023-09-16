@@ -20,13 +20,13 @@ const { title, description, blog } = Astro.props as Props;
 	<meta name="description" content={description} />
 	<style>
 		@font-face {
-			font-family: "Geologica";
-			src: url("/fonts/Geologica.woff2") format("woff2");
+			font-family: "LatoBold";
+			src: url("/fonts/Lato-Bold.ttf") format("truetype");
 			font-display: fallback;
 			unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
 				U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
 				U+2212, U+2215, U+FEFF, U+FFFD;
-    	}
+		}
 		@font-face {
 			font-family: "Nunito";
 			src: url("/fonts/Nunito.ttf") format("truetype");
@@ -36,24 +36,16 @@ const { title, description, blog } = Astro.props as Props;
 				U+2212, U+2215, U+FEFF, U+FFFD;
 		}
 		@font-face {
-			font-family: "Lexend Deca";
-			src: url("/fonts/LexendDeca.woff2") format("woff2");
-			font-display: fallback;
-			unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6,
-				U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193,
-				U+2212, U+2215, U+FEFF, U+FFFD;
-    	}
-		@font-face {
-			font-family: "Geologica Fallback";
+			font-family: "LatoBold Fallback";
 			size-adjust: 108%;
 			ascent-override: 93%;
 			src: local("Arial");
 		}
 		@font-face {
-			font-family: "Lexend Deca Fallback";
+			font-family: "Nunito Fallback";
 			size-adjust: 95%;
 			ascent-override: 102%;
-			src: local("Arial Black");
+			src: local("Arial");
 		}
 	</style>
 </head>

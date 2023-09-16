@@ -4,9 +4,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     fontFamily: {
-      sans: ["Geologica", "Geologica Fallback", "ui-sans-serif", "system-ui"],
+      sans: ["Nunito", "Nunito Fallback", "ui-sans-serif", "system-ui"],
       mono: ["JetBrains Mono", "monospace"],
-      display: ["Lexend Deca", "Lexend Deca Fallback", "ui-sans-serif", "system-ui"],
+      display: ["LatoBold", "LatoBold Fallback", "ui-sans-serif", "system-ui"],
     },
     extend: {},
   },
