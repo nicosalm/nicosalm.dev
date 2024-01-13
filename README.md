@@ -1,6 +1,6 @@
 # nicosalm.dev
 
-This is my personal website, built with [Astro](https://astro.build).
+This is my personal website, built with [Astro](https://astro.build)!
 
 [![wakatime](https://wakatime.com/badge/user/66fd5568-da32-466f-8a36-c16978837bac/project/37b22ca2-f72b-4646-80a0-1fc8c3f740d9.svg)](https://wakatime.com/badge/user/66fd5568-da32-466f-8a36-c16978837bac/project/37b22ca2-f72b-4646-80a0-1fc8c3f740d9)
 
