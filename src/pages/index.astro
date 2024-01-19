@@ -22,11 +22,6 @@ let socialMedia = [
     name: "LinkedIn",
   },
   {
-    url: "https://discord.gg/k2kz8fFwdK",
-    icon: "fa6-brands:discord",
-    name: "Discord",
-  },
-  {
     url: "mailto:contact@nicosalm.dev",
     icon: "fluent:mail-24-filled",
     name: "Email",
@@ -35,155 +30,141 @@ let socialMedia = [
 ---
 
 <Layout title="Nico Salm" description="Hi! I'm Nico. I'm a software engineer and quantum computing specialist. Check out my site!">
-  <!-- Top -->
-  <main class="mx-auto max-w-screen-xl flex xl:p-0 p-4 lg:flex-row flex-col pt-2">
-    <!-- Card -->
-    <section class={`card flex-grow flex flex-row bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#f4c7fc] via-[#ede6fc] to-[#c7d5fc] dark:from-[#253b73] dark:to-[#8560c4]`}>
-      <!-- Information -->
-      <div class="p-6 flex flex-col justify-between">
-        <!-- Text -->
-        <div>
-          <h1 class="font-display font-semibold text-4xl xl:text-5xl">Hi! I'm Nico.</h1>
-          <h2 class="font-normal text-2xl xl:text-3xl leading-7">I'm a software engineer and quantum computing specialist.</h2>
-          <p class="pt-4 xl:text-lg">
-            Currently, I'm doing ML/materials informatics research with <a href="https://skunkworks.engr.wisc.edu/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Informatics Skunkworks</a> (<a href="https://scholar.google.com/citations?user=ZzvI97IAAAAJ&hl=en" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Dane Morgan</a>) group to synthesize target
-            material structures. I also share my love of quantum through the <a
-              href="https://wqi.wisc.edu/wqcc/"
-              class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline"
-              target="_blank">WQCC</a
-            >, which I help to lead.          </p>
-        </div>
-        <!-- Social Media -->
-        <div class="flex justify-start mt-4 items-center">
-          {
-            socialMedia.map((sm) => (
-              <a href={sm.url} target="_blank" class="xl:mr-4 mr-3 xl:p-4 md:p-3 p-2 rounded-full bg-base-100/50 hover:bg-base-200/50 transition-all backdrop-blur-md" title={sm.name}>
-                <Icon name={sm.icon} class="xl:max-w-[2em] xl:h-8 md:max-w-[1.75em] md:h-7 max-w-[1.5em] h-6" />
-              </a>
-            ))
-          }
-        </div>
-      </div>
-      <!-- Picture -->
-      <div class="flex-shrink-0 flex-col flex justify-end">
-        <Picture
-          formats={["avif", "webp", "png"]}
-          alt="Picture"
-          class="w-0 sm:w-[200px] md:w-[300px] aspect-[3/4.04]"
-          widths={[600, 300]}
-          loading="eager"
-          sizes="(max-width: 640px) 0px, (max-width: 768px) 200px, 300px"
-          src={import("../images/me.png")}
-        />
-      </div>
-    </section>
-    <!-- Articles -->
-    <section class="flex-none p-3 lg:ml-2 lg:w-80">
-      <h2 class="font-display font-bold text-2xl mb-2">Articles</h2>
-      <div class="lg:grid-cols-1 grid sm:grid-cols-3 gap-4 mb-2 grid-cols-1">
-        {
-          recentPosts.map((post) => (
-            <a rel="prefetch" href={post.url} class="group">
-              <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">{post.frontmatter.title}</h3>
-              <p class="opacity-85 font-light leading-5 mb-1">{post.frontmatter.description}</p>
-              <div class="flex flex-wrap opacity-80 items-center">
+    <!-- Top -->
+    <main class="mx-auto max-w-screen-xl flex xl:p-0 p-4 lg:flex-row flex-col pt-2">
+        <!-- Card -->
+        <section class={`card flex-grow flex flex-row bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#f4c7fc] via-[#ede6fc] to-[#c7d5fc] dark:from-[#253b73] dark:to-[#8560c4]`}>
+            <!-- Information -->
+            <div class="p-6 flex flex-col justify-between">
+                <!-- Text -->
+                <div>
+                    <h1 class="font-display font-semibold text-4xl xl:text-5xl">Hi! I'm Nico.</h1>
+                    <h2 class="font-normal text-2xl xl:text-3xl leading-7">I'm a software engineer and quantum computing specialist.</h2>
+                    <p class="pt-4 xl:text-lg">
+                        Currently, I'm doing ML/materials informatics research with <a href="https://skunkworks.engr.wisc.edu/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Informatics Skunkworks</a> (<a href="https://scholar.google.com/citations?user=ZzvI97IAAAAJ&hl=en" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Dane Morgan</a>) group to synthesize target
+                        material structures. I also share my love of quantum through the <a
+                            href="https://wqi.wisc.edu/wqcc/"
+                            class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline"
+                            target="_blank">WQCC</a
+                        >, which I help to lead.</p>
+                </div>
+                <!-- Social Media -->
+                <div class="flex justify-start mt-4 items-center">
+                    {
+                    socialMedia.map((sm) => (
+                    <a href={sm.url} target="_blank" class="xl:mr-4 mr-3 xl:p-4 md:p-3 p-2 rounded-full bg-base-100/50 hover:bg-base-200/50 transition-all backdrop-blur-md" title={sm.name}>
+                    <Icon name={sm.icon} class="xl:max-w-[2em] xl:h-8 md:max-w-[1.75em] md:h-7 max-w-[1.5em] h-6" />
+                    </a>
+                    ))
+                    }
+                </div>
+            </div>
+            <!-- Picture -->
+            <div class="flex-shrink-0 flex-col flex justify-end">
+                <Picture
+                    formats={["avif", "webp", "png"]}
+                    alt="Picture"
+                    class="w-0 sm:w-[200px] md:w-[300px] aspect-[3/4.04]"
+                    widths={[600, 300]}
+                    loading="eager"
+                    sizes="(max-width: 640px) 0px, (max-width: 768px) 200px, 300px"
+                    src={import("../images/me.png")}
+                />
+            </div>
+        </section> <!-- End Card -->       
+        <!-- Articles -->
+        <section class="flex-none p-3 lg:ml-2 lg:w-80">
+            <h2 class="font-display font-bold text-2xl mb-2">Articles</h2>
+            <div class="lg:grid-cols-1 grid sm:grid-cols-3 gap-4 mb-2 grid-cols-1">
+                {
+                recentPosts.map((post, index) => (
+                index < 6 && (
+                <a rel="prefetch" href={post.url} class="group">
+                <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">{post.frontmatter.title}</h3>
+                <p class="opacity-85 font-light leading-5 mb-1">{post.frontmatter.description}</p>
+                <div class="flex flex-wrap opacity-80 items-center">
                 <p class="text-sm font-normal leading-5">{new Date(post.frontmatter.pubDate).toLocaleDateString("en-us", { year: "numeric", month: "short", day: "numeric" })}</p>
                 <span class="divider divider-horizontal mx-0" />
                 <span class="badge badge-sm badge-outline">{post.frontmatter.minutesRead} min read</span>
-              </div>
-            </a>
-          ))
-        }
-      </div>
-      <a rel="prefetch" href="/blog" class="text-blue-600 dark:text-blue-400 hover:underline">See all articles →</a>
-    </section>
-  </main>
-
-  <!-- Spacer -->
-  <section class="flex-none p-3 lg:ml-2 lg:w-1"></section>
-
-  <!-- Bottom -->
-  <main class="mx-auto max-w-screen-xl flex xl:p-0 p-4 lg:flex-row flex-col pt-2">
-    <!-- Card: Skills -->
-    <section class="card flex flex-row bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#edf5fc] to-[#c6e2f5] dark:from-[#4c5c6e] dark:to-[#677b9e]">
-      <!-- Skills -->
-      <div class="p-2 flex flex-col justify-between">
-        <section class="flex-none p-3 lg:ml-2 lg:w-80">
-          <h2 class="font-display font-bold text-2xl mb-2">Skills</h2>
-          <div class="lg:grid-cols-1 grid sm:grid-cols-3 gap-4 mb-2 grid-cols-1">
-            <div class="flex flex-col">
-              <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Languages</h3>
-              <p class="opacity-85 font-light leading-5 mb-1">Python, C/C++, Rust, Java, C#, Lua, HTML, CSS, JavaScript, SQL</p>
+                </div>
+                </a>
+                )
+                ))
+                }
             </div>
-            <div class="flex flex-col">
-              <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Frameworks</h3>
-              <p class="opacity-85 font-light leading-5 mb-1">
-                React, Next.js, Node.js, Astro, <a href="https://bun.sh/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Bun</a>, TailwindCSS, JUnit, IBM Qiskit
-              </p>
-            </div>
-            <div class="flex flex-col">
-              <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Infrastructure</h3>
-              <p class="opacity-85 font-light leading-5 mb-1">AWS, Google Cloud, Cloud Foundry</p>
-            </div>
-            <div class="flex flex-col">
-              <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Tools</h3>
-              <p class="opacity-85 font-light leading-5 mb-1">Git, Docker, GitHub Actions, GitHub Codespaces, Linux, (Neo)vim, VS Code</p>
-            </div>
-            <a rel="prefetch" href="https://github.com/stars/nico-himself/lists/my-projects" class="text-blue-600 dark:text-blue-400 hover:underline">My projects →</a>
-          </div>
+            <a rel="prefetch" href="/blog" class="text-blue-600 dark:text-blue-400 hover:underline">See all articles →</a>
         </section>
-      </div>
-    </section>
-    <!-- Horizonal spacing -->
+    </main>
+
+    <!-- Spacer -->
     <section class="flex-none p-3 lg:ml-2 lg:w-1"></section>
 
-    <!-- Card: Featured -->
-    <section class="card flex flex-grow flex-row bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#c7d5fc] via-[#ede6fc] to-[#f4c7fc] dark:from-[#6251a6] dark:to-[#252a73]">
-      <!-- Title: Stuff & Things -->
-      <div class="p-2 flex flex-col justify-between">
-        <!-- Block format: Two columns: one about hackathons, one is an About Me section -->
-        <div class="flex flex-col md:flex-row">
-          <div class="md:w-1/2 p-2">
-            <h2 class="font-display font-bold text-2xl mb-2">Hackathons</h2>
-            <div class="text-base">
-              <p class="xl:text-lg">
-                I love hackathons! I've been to <strong>4</strong> – I've won <strong>2</strong>.  My favorite is <a href="https://www.madhacks.io/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank"
-                  >MadHacks</a
-                >. I'm always looking for new hackathons to attend. Check out our work!
-              </p>
+    <!-- Bottom -->
+    <main class="mx-auto max-w-screen-xl flex xl:p-0 p-4 lg:flex-row flex-col pt-2">
+        <!-- Card: Skills -->
+        <section class="card flex flex-row bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-[#edf5fc] to-[#c6e2f5] dark:from-[#4c5c6e] dark:to-[#677b9e]">
+            <!-- Skills -->
+            <div class="p-2 flex flex-col justify-between">
+                <section class="flex-none p-3 lg:ml-2 lg:w-80">
+                    <h2 class="font-display font-bold text-2xl mb-2">Skills</h2>
+                    <div class="lg:grid-cols-1 grid sm:grid-cols-3 gap-4 mb-2 grid-cols-1">
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Languages</h3>
+                            <p class="opacity-85 font-light leading-5 mb-1">C, Go, HTML/CSS, Java, JavaScript, Python, R, Rust, SQL, Typescript</p>
+                        </div>
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Frameworks</h3>
+                            <p class="opacity-85 font-light leading-5 mb-1">
+                                Astro, <a href="https://bun.sh/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Bun</a>, Node.js, Qiskit, React, Tensorflow
+                            </p>
+                        </div>
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Infrastructure</h3>
+                            <p class="opacity-85 font-light leading-5 mb-1">AWS (Amazon Web Services), Google Cloud, Postgres (psql), S3</p>
+                        </div>
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Tools</h3>
+                            <p class="opacity-85 font-light leading-5 mb-1">Bash, Docker, Git, GitHub, Linux, Unit Testing, (Neo)Vim, VS Code</p>
+                        </div>
+                        <a rel="prefetch" href="https://github.com/stars/nico-himself/lists/my-projects" class="text-blue-600 dark:text-blue-400 hover:underline">My projects →</a>
+                    </div>
+                </section>
             </div>
-            <!-- Spacer -->
-            <div class="flex-none p-1 lg:ml-2 lg:w-1"></div>
-            <a rel="prefetch" href="https://devpost.com/nicosalm" class="text-blue-600 dark:text-blue-400 hover:underline">Devpost page →</a>
-            <!-- Picture -->
-            <a href="https://photos.app.goo.gl/8vghgEA32QZYHsoJ7">
-              <img
-                  src="https://lh3.googleusercontent.com/pw/AIL4fc-p4cLyBcUcHYkZrac04as8BfdO3gsXAbgVE-biyYY3rHw7nqvey69ixk5YFnYRlw1EsAPwTEhIp2uCmk6W21g90trqKh4JmgylDQdJIeYW0RuqEI41za5BtY9IHbV2GNbfCVLTm-Beb0_Pv5Zf-gyZ=w2774-h1850-s-no?authuser=0"
-                  alt="Hackathon"
-                  class="w-full h-auto rounded-lg mt-4 max-w-[324px]""
-              />
-          </a>
-          </div>
-          <!-- Spacer -->
-          <div class="flex-none p-3 lg:ml-2 lg:w-1"></div>
-          <!-- About Me -->
-          <div class="md:w-1/2 p-2">
-            <h2 class="font-display font-bold text-2xl mb-2">More about me!</h2>
-            <div class="text-base">
-              <p class="xl:text-lg">
-                I am from <a href="https://www.doorcounty.com/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Door County</a>, Wisconsin. I live the hustle and
-                bustle of a tourist town in the summer and survive the cold isolation of Midwest winters. I am thankful for my many unique experiences and the lessons I've learned about people and perspective.
-              </p>
-              <!-- Spacer -->
-              <div class="flex-none p-2 lg:ml-2 lg:w-1"></div>
-              <p class="xl:text-lg">
-                Now, I attend the <a href="https://www.wisc.edu/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">University of Wisconsin-Madison</a>, where I
-                double-major in Computer Sciences and Data Science. I love it, and I am grateful for the many opportunities I've had to collaborate and grow. I plan to go for graduate school where I will continue to hunt for knowledge and strive to innovate! 🤘
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
+        </section>
+
+        <!-- Horizonal spacing -->
+        <section class="flex-none p-2 lg:ml-2 lg:w-1"></section>
+
+        <!-- Card: Featured -->
+        <section class="card flex flex-grow flex-row bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#c7d5fc] via-[#ede6fc] to-[#f4c7fc] dark:from-[#6251a6] dark:to-[#252a73]">
+            <div class="p-2 flex flex-col justify-between">
+                    <div class="md:w-1/2 p-2">
+                        <div class="text-base">
+                            <h2 class="font-display font-bold text-2xl mb-2">Hackathons</h2>
+
+                            <p class="xl:text-lg">
+                                I love hackathons! I've been to <strong>4</strong> – I've won <strong>2</strong>.  My favorite is <a href="https://www.madhacks.io/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank"
+                                >MadHacks</a
+                                >. I'm always looking for new hackathons to attend. Check out our work!
+                            </p>
+
+                        </div>
+                        <!-- Spacer -->
+                        <div class="flex-none p-1 lg:ml-2 lg:w-1"/>
+                        
+                        <a rel="prefetch" href="https://devpost.com/nicosalm" class="text-blue-600 dark:text-blue-400 hover:underline">Devpost page →</a>
+
+                        <div class="flex-none p-3 lg:ml-2 lg:w-1"/>
+
+                        <h2 class="font-display font-bold text-2xl mb-2">More about me!</h2>
+
+                            <p class="xl:text-lg">
+                                Raised in bustling <a href="https://www.doorcounty.com/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Door County</a>, Wisconsin,
+                                I've embraced its lively summers and harsh winters, gaining valuable insights into diverse perspectives. Now at the <a href="https://www.wisc.edu/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">University of Wisconsin-Madison</a>, I'm pursuing Computer and
+                                Data Sciences, I relish collaborative opportunities and am committed to continual innovation. 🤘
+                            </p>
+                    </div>
+                </div>
+        </section>
+    </main>
 </Layout>
