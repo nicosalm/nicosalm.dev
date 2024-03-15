@@ -6,30 +6,35 @@ let allPosts = await Astro.glob("./blog/**/index.mdx");
 allPosts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 let recentPosts = allPosts.slice(0, 5);
 let socialMedia = [
-  {
-    url: "https://github.com/nicosalm/",
-    icon: "fa6-brands:github",
-    name: "GitHub",
-  },
-  {
-    url: "https://twitter.com/nicobsalm",
-    icon: "fa6-brands:square-x-twitter",
-    name: "X",
-  },
-  {
-    url: "https://www.linkedin.com/in/nicosalm/",
-    icon: "fa6-brands:linkedin",
-    name: "LinkedIn",
-  },
-  {
-    url: "mailto:contact@nicosalm.dev",
-    icon: "fluent:mail-24-filled",
-    name: "Email",
-  },
+    {
+        url: "https://github.com/nicosalm/",
+        icon: "fa6-brands:github",
+        name: "GitHub",
+    },
+    {
+        url: "https://nicosalm.dev/resume.pdf",
+        icon: "mdi:resume",
+        name: "Resume",
+    },
+    {
+        url: "https://www.linkedin.com/in/nicosalm/",
+        icon: "fa6-brands:linkedin",
+        name: "LinkedIn",
+    },
+    {
+        url: "mailto:contact@nicosalm.dev",
+        icon: "fluent:mail-24-filled",
+        name: "Email",
+    },
+    {
+        url: "https://leetcode.com/nico-himself/",
+        icon: "simple-icons:leetcode",
+        name: "Leetcode",
+    }
 ];
 ---
 
-<Layout title="Nico Salm" description="Hi! I'm Nico. I'm a software engineer and quantum computing specialist. Check out my site!">
+<Layout title="Nico Salm" description="Hi! I'm Nico. I'm a software engineer and quantum computing enthusiast. Check out my site!">
     <main class="mx-auto max-w-screen-xl xl:flex xl:p-0 p-4 pt-2">
         <!-- Main content (3/4 of the page) -->
         <div class="flex-grow xl:w-3/4">
@@ -38,14 +43,10 @@ let socialMedia = [
                 <div class="p-6 flex flex-col justify-between">
                     <div>
                         <h1 class="font-display font-semibold text-4xl xl:text-5xl">Hi! I'm Nico.</h1>
-                        <h2 class="font-normal text-2xl xl:text-3xl leading-7">I'm a software engineer and quantum computing specialist.</h2>
+                        <h2 class="font-normal text-2xl xl:text-3xl leading-7">I am a software engineer.</h2>
                         <p class="pt-4 xl:text-lg">
-                            Currently, I'm doing ML/materials informatics research with <a href="https://skunkworks.engr.wisc.edu/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Informatics Skunkworks</a> (<a href="https://scholar.google.com/citations?user=ZzvI97IAAAAJ&hl=en" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Dane Morgan</a>) group to synthesize target
-                            material structures.<br/>I also share my love of quantum through the <a
-                                href="https://wqi.wisc.edu/wqcc/"
-                                class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline"
-                                target="_blank">WQCC</a
-                            >, which I help to lead.</p>
+                           With nearly two years as a Research Assistant in Materials Informatics and a strong background in data science, I excel in applying data and machine learning to predictive analytics. My expertise also spans data structures, algorithms, and computer science theory, illustrating a deep understanding of both the practical and theoretical aspects of the field.
+                        </p>
                     </div>
                     <!-- Social Media -->
                     <div class="flex justify-start mt-4 items-center">
@@ -86,12 +87,12 @@ let socialMedia = [
                             <div class="lg:grid-cols-1 grid sm:grid-cols-3 gap-4 mb-2 grid-cols-1">
                                 <div class="flex flex-col">
                                     <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Languages</h3>
-                                    <p class="opacity-85 font-light leading-5 mb-1">C, Go, HTML/CSS, Java, JavaScript, Python, R, Rust, SQL, Typescript</p>
+                                    <p class="opacity-85 font-light leading-5 mb-1">C, Java, JavaScript, Python, R, Rust, SQL, Typescript, Zig</p>
                                 </div>
                                 <div class="flex flex-col">
                                     <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Frameworks</h3>
                                     <p class="opacity-85 font-light leading-5 mb-1">
-                                        Astro, <a href="https://bun.sh/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Bun</a>, Node.js, Qiskit, React, Tensorflow
+                                        Astro, <a href="https://bun.sh/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Bun</a>, Node.js, PyTorch, Qiskit, React, Tensorflow
                                     </p>
                                 </div>
                                 <div class="flex flex-col">
@@ -100,7 +101,7 @@ let socialMedia = [
                                 </div>
                                 <div class="flex flex-col">
                                     <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Tools</h3>
-                                    <p class="opacity-85 font-light leading-5 mb-1">Bash, Docker, Git, GitHub, Linux, Unit Testing, (Neo)Vim, VS Code</p>
+                                    <p class="opacity-85 font-light leading-5 mb-1">Bash, Docker, Git, GitHub, Linux, (Neo)Vim, VS Code</p>
                                 </div>
                                 <a rel="prefetch" href="https://github.com/stars/nicosalm/lists/my-projects" class="text-blue-600 dark:text-blue-400 hover:underline">My projects →</a>
                             </div>
@@ -119,10 +120,7 @@ let socialMedia = [
                                 <h2 class="font-display font-bold text-2xl mb-2">Hackathons</h2>
 
                             <p class="xl:text-lg">
-                                I love hackathons! I've been to <strong>4</strong> – I've won <strong>2</strong> alongside fantastic teammates.  My favorite hackathon is <a href="https://www.madhacks.io/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank"
-                                >MadHacks</a
-                                > (duh). I'm always looking for new hackathons to attend. Check out our work!
-                            </p>
+                                I enjoy Hackathons. I’ve been to 5, and won 2 with the help of stellar teammates. The most interesting Hackathon I’ve attended is MIT IQuHACK. We implemented a Photonic Quantum GAN – it was a challenge, but I learned a lot! Check out our work.                            </p>
 
                             </div>
                             <div class="flex-none p-1 lg:ml-2 lg:w-1"/>
@@ -132,9 +130,7 @@ let socialMedia = [
 
                             <h2 class="font-display font-bold text-2xl mb-2">More about me!</h2>
                             <p class="xl:text-lg">
-                                Raised in bustling <a href="https://www.doorcounty.com/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Door County</a>, Wisconsin,
-                                I've embraced its lively summers and harsh winters, gaining valuable insights into diverse perspectives. Now at the <a href="https://www.wisc.edu/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">University of Wisconsin-Madison</a>, I'm pursuing Computer and
-                                Data Sciences; I relish collaborative opportunities and am committed to continual innovation. 🤘
+                                I was raised in <a href="https://www.doorcounty.com/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Door County</a>, WI. It is an unique dichotomy of bustling tourist summers and harsh, Midwest winters. I’ve learned to work with people and appreciate diverse perspectives. Now at the <a href="https://www.wisc.edu/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">University of Wisconsin</a>, I’m pursuing a double major in Computer and Data Sciences. I relish collaborative opportunities and I am comitted to continual innovation. 🤘
                             </p>
                         </div>
                     </div>
