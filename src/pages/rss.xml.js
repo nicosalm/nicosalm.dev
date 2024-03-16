@@ -1,5 +1,6 @@
 import rss, { pagesGlobToRssItems } from '@astrojs/rss';
 const SITE_TITLE = 'Nico Salm | Blog';
+const SITE_DESCRIPTION = "Hi! I'm Nico. I'm a software engineer. Welcome to my portfolio and blog.";
 
 export async function get(context) {
   return rss({
