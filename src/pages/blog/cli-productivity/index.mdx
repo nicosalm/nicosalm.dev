@@ -1,0 +1,118 @@
+---
+layout: ../../../layouts/BlogLayout.astro
+pubDate: 2024/04/17
+title: "My command-line-centric workflow where I do my best work."
+description: "Coming soon"
+---
+
+# command line productivity
+
+## intro
+
+The goal of this article is not to convince you to make monumental changes in your developer workflow overnight, nor is it a hit-job against "mainstream" editors and IDEs. My intention is to convey a certain mindset and the boons which follow from adopting it.
+
+There are, in my mind, two distinct domains of technical productivity:
+
+1. On one hand, you have tools like [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Github](https://github.com/). They are essential overhauls to your productivity. They save the day when things go awry, and should be used in every single case. They will not be the focus of this article.
+   <br />
+2. On the other hand, there are tools which genuinely increase the rate at which you produce code and complete tasks. These are what we'll be talking about today!
+
+My stance is this: You can achieve your peak productivity with nothing but the command line and your web browser. This article will describe a minimal, keyboard-centric workflow with very few distractions where you can do your best work.
+
+---
+
+## shells
+
+A command-line interface (CLI) is an operating system shell that uses interactive keyboard inputs to commmunicate with the OS. You are probably looking at one right now: `bash` – the default [UNIX](https://www.hpc.iastate.edu/guides/unix-introduction#:~:text=What%20is%20UNIX%3F,for%20servers%2C%20desktops%20and%20laptops.) shell, or command prompt for Windows.
+
+These default shells "get the job done", but are barebones compared to better, more feature-rich, and advanced options.
+
+### shell showdown!
+
+`zsh` is the most widely used alternative to `bash`. And rightfully so, for it employs a whole host of benifits. `zsh` is more customizable (we'll get back to this), the prompts are more versatile, and the completion speed is faster than `bash`. In addition, `bash` cannot handle floating-point arithmetic – `number=$((3.1/4.7))` or arrays[^1]. Support for both while scripting gives `zsh` the edge. It also has unicode support :)
+
+Alternatives to `zsh` exist. There are upsides and drawbacks to each. Let's talk about `fish`, a strong contender for my new favorite shell.
+
+`fish` boasts a relatively user-friendly syntax, making it somewhat easier to grasp than `zsh` which emulates bash's more complex syntax. Unlike `zsh`, `fish` does away with aliases (see [cusomization](#customization)), relying solely on the superset – functions. This simplifies shell interaction at the cost of functionality some users might appreciate. In addition, `fish` excels with tab-completion generated from man-pages, a feature which is absent in `bash` or `zsh` by default[^2].
+
+In the end, the choice of shell is a personal one. I recommend `zsh` for its flexibility and speed, but `fish` is a great choice for beginners or those who prefer a more user-friendly experience with
+better out-of-the-box features.
+
+[^1]: While `bash` has "arrays", it doesn't implement true array data structures. Under the hood they are a delimited text string. `zsh` implements true arrays capable of pointer arithmetic. With larger datasets, the difference in efficiency here is notable.
+[^2]: This feature can be added to `zsh` with the `zsh-autosuggestions` plugin.
+
+### customization
+
+`zsh` and `fish` are both highly customizable. `zsh` has a plugin system, [oh-my-zsh](https://ohmyz.sh/), which is a collection of plugins and themes for `zsh`. `fish` has a similar system, [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish). Both are great starting points for customizing your shell.
+
+Additionally, making use of aliases and functions can greatly improve your workflow. For example, I have an alias `alias g='git'` which allows me to type `g` instead of `git`. This is a simple example, but you can create aliases for more complex commands or functions to automate tasks.
+
+The .zshrc file is a configuration file for `zsh`. It is located in your home directory. The contents of this file are [sourced](https://unix.stackexchange.com/questions/63765/what-does-sourcing-a-file-mean-in-a-shell) every time the shell is started, allowing us to achieve persistent aliases and customizations.
+
+A similar file exists for `fish`, located at ~/.config/fish/config.fish.
+
+Here is an example of a `.zshrc` file with some customizations:
+
+```bash
+# Colorful cat ᓚᘏᗢ
+alias ccat 'pygmentize -g'
+
+# Git aliases
+alias g 'git'
+alias gs 'git status -s'
+
+# Shorthand
+alias j jobs
+alias ut 'uptime'
+alias so 'source'
+alias t 'todo.sh'
+alias l 'eza --group-directories-first'
+alias ls 'l'
+alias la 'l -a'
+alias ll 'l --git -l'
+
+alias c 'clear'
+alias v 'nvim'
+alias vim 'nvim'
+
+# Quick edits
+alias ea 'nvim ~/.config/fish/aliases.fish'
+alias ef 'nvim ~/.config/fish/config.fish'
+alias eg 'nvim ~/.gitconfig'
+alias ev 'nvim ~/.config/nvim/'
+alias et 'nvim ~/.tmux.conf'
+alias lc 'cd ~/dev/.leetcode && nvim ~/dev/.leetcode'
+
+function timestamp
+    python -c 'import time; print(int(time.time()))'
+end
+
+```
+
+### installation
+
+#### WSL
+
+#### installing zsh
+
+#### installing fish
+
+---
+
+## tmux
+
+---
+
+## neovim
+
+---
+
+## .dotfiles
+
+---
+
+## wrapping up
+
+```
+
+```
