@@ -233,6 +233,37 @@ Neovim is a fork of Vim which expands on it's functionality by allowing you to
 
 ## .dotfiles
 
+Creation of a Dotfiles directory brings everything together by making your
+productivity workflow reproducible on any machine in just a few minutes.
+
+Many programs store their configuration files in plain text files. These 
+are usually (but not always) in your `~` or `~/.config/~` directories. Dotfiles
+are configuration files for various programs. What sets them apart
+from regular files and directories is their prefix: a dot (`.`). 
+
+On Unix based systems, dotfiles are hidden by the OS by default. 
+
+Some common dotfiles are: 
+* `.bash_profile` and `.bashrc` for the Bash shell
+* `.zshrc` for the Zsh shell
+* `.vimrc` for Vim (or `~/.config/nvim/`) for Neovim
+* `.tmux.conf` for Tmux
+* `.gitignore` and `.gitconfig` global defaults in `~`
+
+Gather up all of your configuration files and copy them into a Dotfiles
+directory. Now, a copy of everything is in the same place. Put that
+in a public[^3] GitHub repository. 
+
+You can expand on this by rerouting your programs to look for their config files
+within `~/.dotfiles` (or similar) instead of their defaults. You can
+make liberal use of scripting to automate all of this. In theory one or two
+scripts can get everything up and running.
+
+If you're curious, you can access my .dotfiles 
+[here](https://github.com/nicosalm/.dotfiles). It may not be up to date.
+
+[^3]: We opt for a public repository so you can clone it on any machine without
+needing to verify your GitHub credentials first.
 ---
 
 ## wrapping up
