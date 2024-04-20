@@ -1,6 +1,6 @@
 ---
 layout: ../../../layouts/BlogLayout.astro
-pubDate: 2024/04/17
+pubDate: 2024/04/26
 title: "Spotlight: CLI Productivity"
 description: "My command-line-centric workflow where I do my best work."
 ---
@@ -39,7 +39,7 @@ Let's go!
 
 A command-line interface (CLI) is an operating system shell that uses
 interactive keyboard inputs to commmunicate with the OS. You are probably
-looking at one right now: `bash` – the default
+looking at one[^1] right now: `bash` – the default
 [UNIX](https://www.hpc.iastate.edu/guides/unix-introduction#:~:text=What%20is%20UNIX%3F,for%20servers%2C%20desktops%20and%20laptops.)
 shell, or command prompt for Windows.
 
@@ -49,11 +49,11 @@ feature-rich alternatives.
 ### shell showdown!
 
 `zsh` is the most widely used alternative shell. And rightfully so, for it
-is rich with benifits. `zsh` is more customizable, the prompts are more 
+is rich with benefits. `zsh` is more customizable, the prompts are more 
 versatile, and the completion speed is faster than `bash`. 
 
 In addition, `bash` cannot handle floating-point arithmetic i.e. 
-`number=$((3.1/4.7))` or arrays[^1]. Support for both while scripting gives `zsh`
+`number=$((3.1/4.7))` or arrays[^2]. Support for both while scripting gives `zsh`
 the edge. It also has unicode support! 😊
 
 `fish`, a strong contender for my new favorite shell, is another option. It
@@ -64,15 +64,10 @@ aliases (see [#customization](#customization)), relying solely on the superset
 at the cost of functionality some users might appreciate. 
 
 In addition, `fish` excels with tab-completion generated from man-pages, a 
-feature which is absent in `bash` or `zsh` by default[^2].
+feature which is absent in `bash` or `zsh` by default[^3].
 
 In the end, the choice of shell is a personal one. I recommend `zsh` for its flexibility and speed, but `fish` is a great choice for beginners or those who prefer a more user-friendly experience with
 better out-of-the-box features.
-
-[^1]: While `bash` has "arrays", it doesn't implement true array data structures.
-Under the hood [they are (index, value) linked lists](https://github.com/lucasscharenbroch/bash-with-floats/blob/master/array.c#L5).
-`zsh` implements true arrays capable of pointer arithmetic. With larger datasets, the difference in efficiency is notable.
-[^2]: This feature can be added to `zsh` with the `zsh-autosuggestions` plugin.
 
 ### customization
 
@@ -93,32 +88,27 @@ directory. The contents of this file are
 every time the shell is started, allowing us to achieve persistent aliases and
 customizations.
 
-A similar file exists for `fish`, located at ~/.config/fish/config.fish. Here is a sample:
+A similar file exists for `fish`, located at ~/.config/fish/config.fish. Here is a concise sample:
 
 ```bash
-# Colorful cat ᓚᘏᗢ
+# colorful cat ᓚᘏᗢ
 alias ccat 'pygmentize -g'
 
-# Shorthand
-alias j jobs
+# shorthand
 alias ut 'uptime'
 alias so 'source'
 alias l 'eza --group-directories-first' # my ls alternative
-alias ls 'l'
 alias la 'l -a'
 alias ll 'l --git -l'
 
-alias c 'clear'
-alias vim 'nvim'
+alias vim 'nvim' # neovim btw
 
-# Quick edits
+# quick edits
 alias ea 'nvim ~/.config/fish/aliases.fish'
-alias ef 'nvim ~/.config/fish/config.fish'
-alias eg 'nvim ~/.gitconfig'
 alias ev 'cd ~/.config/nvim/ && nvim .'
-alias et 'nvim ~/.tmux.conf'
 alias lc 'cd ~/dev/.leetcode && nvim .'
 
+# you can craft functions too!
 function timestamp
     python -c 'import time; print(int(time.time()))'
 end
@@ -143,7 +133,7 @@ that make sense to you, and you won't regret it!
 ## tmux
 
 A terminal multiplexer is a program that transparently "stands between" your
-active terminal connection and K spawned terminal sessions. With `tmux` you
+active terminal connection and <i>K</i> spawned terminal sessions. With `tmux` you
 can start a session on a remote server, launch applications in that session,
 then detach and reattach from that session at will.
 
@@ -225,9 +215,21 @@ Use `tmux`. It makes everything easier.
 
 ---
 
-## neovim
-Neovim is a fork of Vim which expands on it's functionality by allowing you to
-"drop in" community-curated plugins to enhance your experience.
+## Vim
+
+I have been using Vim for about two years. When Vim is mentioned, it's usually
+in one of two contexts: `vim` (the program) or Vim Motions. 
+
+### Vim Motions
+Everyone should use Vim Motions. They are extremely efficient. They are available
+in all major editors. 
+
+### Vim
+Vim the program isn't as univeral. My blind dart board toss is that ~80% of developers use Microsoft
+products like Visual Studio Code or JetBrains products like IntelliJ. These are 
+extremely valuable out-of-the-box editors and IDEs. However, a smaller subset
+prize modular customization and blazingly fast speed. These individuals usually
+begin with Vim and migrate to expanded forks of this 
 
 ---
 
@@ -252,7 +254,7 @@ Some common dotfiles are:
 
 Gather up all of your configuration files and copy them into a Dotfiles
 directory. Now, a copy of everything is in the same place. Put that
-in a public[^3] GitHub repository. 
+in a public[^4] GitHub repository. 
 
 You can expand on this by rerouting your programs to look for their config files
 within `~/.dotfiles` (or similar) instead of their defaults. You can
@@ -262,10 +264,19 @@ scripts can get everything up and running.
 If you're curious, you can access my .dotfiles 
 [here](https://github.com/nicosalm/.dotfiles). It may not be up to date.
 
-[^3]: We opt for a public repository so you can clone it on any machine without
-needing to verify your GitHub credentials first.
+
 ---
 
 ## wrapping up
 
 ---
+
+[^1]: View any running shell process with `ps` or `echo $SHELL` to see your login (default) shell.
+
+[^2]: While `bash` has "arrays", it doesn't implement true array data structures.
+Under the hood [they are (index, value) linked lists](https://github.com/lucasscharenbroch/bash-with-floats/blob/master/array.c#L5). `zsh` implements true arrays capable of pointer arithmetic. With larger datasets, the difference in efficiency is notable.
+
+[^3]: This feature can be added to `zsh` with the `zsh-autosuggestions` plugin.
+
+[^4]: We opt for a public repository so you can clone it on any machine without
+needing to verify your GitHub credentials first.

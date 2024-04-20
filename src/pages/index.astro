@@ -6,7 +6,7 @@ let allPosts = await Astro.glob("./blog/**/index.mdx");
 allPosts.sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 let recentPosts = allPosts.slice(0, 5);
 let socialMedia = [
-    {
+     {
         url: "https://github.com/nicosalm/",
         icon: "fa6-brands:github",
         name: "GitHub",
@@ -89,12 +89,12 @@ let socialMedia = [
                             <div class="lg:grid-cols-1 grid sm:grid-cols-3 gap-4 mb-2 grid-cols-1">
                                 <div class="flex flex-col">
                                     <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Languages</h3>
-                                    <p class="opacity-85 font-light leading-5 mb-1">JavaScript/TypeScript, Python, C/C++, Java, Rust, Zig, R, x86 Assembly, SQL</p>
+                                    <p class="opacity-85 font-light leading-5 mb-1">JavaScript/TypeScript, Python, C/C++, Java, Rust, R, x86 Assembly, SQL</p>
                                 </div>
                                 <div class="flex flex-col">
                                     <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Frameworks/Runtimes</h3>
                                     <p class="opacity-85 font-light leading-5 mb-1">
-                                        React, Astro, ExpressJS, NodeJS, <a href="https://bun.sh/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Bun</a>
+                                        React, Astro, ExpressJS, NodeJS, <a href="https://bun.sh/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all hover:underline" target="_blank">Bun</a>
                                     </p>
                                 </div>
                                 <div class="flex flex-col">
@@ -103,7 +103,7 @@ let socialMedia = [
                                 </div>
                                 <div class="flex flex-col">
                                     <h3 class="text-lg font-medium leading-5 mb-1 group-hover:underline dark:text-blue-200">Tools</h3>
-                                    <p class="opacity-85 font-light leading-5 mb-1">Shell (Bash), Docker, Git, GitHub, Linux, <a href="https://neovim.io/charter/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Neo</a>Vim, Visual Studio Code</p>
+                                    <p class="opacity-85 font-light leading-5 mb-1">Shell (Bash), Docker, Git, GitHub, Linux, <a href="https://neovim.io/charter/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all hover:underline" target="_blank">Neo</a>Vim, Visual Studio Code</p>
                                 </div>
                             </div>
                         </section>
@@ -122,9 +122,9 @@ let socialMedia = [
 
                             <p class="xl:text-lg">
                                 I grew up in Door County, WI – known for its beautiful tourist summers and snowy Midwest winters. 
-                                I spent two years as a <a href="https://skunkworks.engr.wisc.edu/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Research Assistant</a> in Materials Informatics.
-                                I co-founded the <a href="https://wqi.wisc.edu/wqcc/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Wisconsin Quantum Computing Club</a> and I am a member of the <a href="https://www.upl.cs.wisc.edu/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Undergraduate Projects Lab</a>.
-                                I enjoy the high-intensity environment of <a href="https://devpost.ccom/nicosalm" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">Hackathons</a>, having won 2 out of 5, with <a href="blog/iquhack24/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all underline" target="_blank">MIT IQuHACK</a> being my favorite event to date.
+                                I spent two years as a <a href="https://skunkworks.engr.wisc.edu/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all hover:underline" target="_blank">Research Assistant</a> in Materials Informatics.
+                                I co-founded the <a href="https://wqi.wisc.edu/wqcc/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all hover:underline" target="_blank">Wisconsin Quantum Computing Club</a> and I am a member of the <a href="https://www.upl.cs.wisc.edu/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all hover:underline" target="_blank">Undergraduate Projects Lab</a>.
+                                I enjoy the high-intensity environment of <a href="https://devpost.ccom/nicosalm" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all hover:underline" target="_blank">Hackathons</a>, having won 2 out of 5, with <a href="blog/iquhack24/" class="hover:dark:text-blue-400 hover:text-blue-600 transition-all hover:underline" target="_blank">MIT IQuHACK</a> being my favorite event to date.
                                 I love realizing complex ideas and I am committed to continual innovation.</p>
                             <br/>
                             <p class="xl:text-lg">
