@@ -1,6 +1,6 @@
 ---
 layout: ../../../layouts/BlogLayout.astro
-pubDate: 2024/04/26
+pubDate: 2024/04/24
 title: "Spotlight: CLI Productivity"
 description: "My command-line-centric workflow where I do my best work."
 ---
@@ -9,274 +9,98 @@ import BlogPicture from '../../../components/BlogPicture.astro';
 
 # command line productivity
 
-## intro
+## Intro
 
-You can achieve peak productivity with nothing but the command line and
-your web browser. I will describe my minimal, focused, keyboard-centric
-workflow where I do my best work.
+You can achieve peak productivity with nothing but the command line and your web browser. I will describe my minimal, focused, keyboard-centric workflow where I do my best work.
 
-The goal of this article is not to convince you to make monumental changes in 
-your developer workflow overnight, nor is it a hit-job against "mainstream"
-editors and IDEs. My intention is to expose you to my perspective and the tools
-which work for me. 
+The goal of this article is not to convince you to make monumental changes in your developer workflow overnight, nor is it a hit-job against “mainstream” editors and IDEs. My intention is to expose you to my perspective and the tools which work for me.
 
 There are, in my mind, two distinct domains of technical productivity:
 
-1. On one hand, you have tools like
-[Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
-and [Github](https://github.com/). They are essential overhauls to your
-productivity. They save the day when things go awry, and should be used in
-every single case. They will not be the focus of this article.
+On one hand, you have tools like Git and Github. They are essential overhauls to how you approach work. They save the day when things go awry, and should be used in every single case. They will not be the focus of this article.
 
-2. On the other hand, there are tools which genuinely increase the rate at
-which you produce code and complete tasks. **This is what I am showcasing today.**
+On the other hand, there are tools which genuinely increase the rate at which you produce code and complete tasks. This is what I am showcasing today.
 
 Let's go!
 
 ---
 
-## shells
-
-A command-line interface (CLI) is an operating system shell that uses
-interactive keyboard inputs to commmunicate with the OS. You are probably
-looking at one[^1] right now: `bash` – the default
-[UNIX](https://www.hpc.iastate.edu/guides/unix-introduction#:~:text=What%20is%20UNIX%3F,for%20servers%2C%20desktops%20and%20laptops.)
-shell, or command prompt for Windows.
-
-These shells "get the job done", but are barebones compared to better,
-feature-rich alternatives.
-
-### shell showdown!
-
-`zsh` is the most widely used alternative shell. And rightfully so, for it
-is rich with benefits. `zsh` is more customizable, the prompts are more 
-versatile, and the completion speed is faster than `bash`. 
-
-In addition, `bash` cannot handle floating-point arithmetic i.e. 
-`number=$((3.1/4.7))` or arrays[^2]. Support for both while scripting gives `zsh`
-the edge. It also has unicode support! 😊
-
-`fish`, a strong contender for my new favorite shell, is another option. It
-boasts a user-friendly syntax, making it somewhat easier to grasp than `zsh`
-which emulates bash's more complex syntax. Unlike `zsh`, `fish` does away with
-aliases (see [#customization](#customization)), relying solely on the superset
-– functions. This simplifies shell interaction
-at the cost of functionality some users might appreciate. 
-
-In addition, `fish` excels with tab-completion generated from man-pages, a 
-feature which is absent in `bash` or `zsh` by default[^3].
-
-In the end, the choice of shell is a personal one. I recommend `zsh` for its flexibility and speed, but `fish` is a great choice for beginners or those who prefer a more user-friendly experience with
-better out-of-the-box features.
-
-### customization
-
-`zsh` and `fish` are both highly customizable. `zsh` has a plugin system,
-[oh-my-zsh](https://ohmyz.sh/), which is a collection of plugins and themes for
-`zsh`. `fish` has a similar system,
-[oh-my-fish](https://github.com/oh-my-fish/oh-my-fish). Both are great starting
-points for customizing your shell.
-
-Additionally, making use of aliases and functions can greatly improve your 
-workflow. For example, I have an alias `alias g='git'` which allows me to type
-`g` instead of `git`. This is a simple example, but you can create aliases for
-more complex commands or functions to automate tasks.
-
-The .zshrc file is a configuration file for `zsh`. It is located in your home
-directory. The contents of this file are
-[sourced](https://unix.stackexchange.com/questions/63765/what-does-sourcing-a-file-mean-in-a-shell)
-every time the shell is started, allowing us to achieve persistent aliases and
-customizations.
-
-A similar file exists for `fish`, located at ~/.config/fish/config.fish. Here is a concise sample:
-
-```bash
-# colorful cat ᓚᘏᗢ
-alias ccat 'pygmentize -g'
-
-# shorthand
-alias ut 'uptime'
-alias so 'source'
-alias l 'eza --group-directories-first' # my ls alternative
-alias la 'l -a'
-alias ll 'l --git -l'
-
-alias vim 'nvim' # neovim btw
-
-# quick edits
-alias ea 'nvim ~/.config/fish/aliases.fish'
-alias ev 'cd ~/.config/nvim/ && nvim .'
-alias lc 'cd ~/dev/.leetcode && nvim .'
-
-# you can craft functions too!
-function timestamp
-    python -c 'import time; print(int(time.time()))'
-end
-
-```
-
-### installation & resources
-* Fundamentals
-    * Escape Windows hell with WSL: https://learn.microsoft.com/en-us/windows/wsl/install
-    * If you are on Mac and aren't using Homebrew as a pkg manager... use it: https://brew.sh/
-* Everything fish: https://fishshell.com/
-    * OMF: https://github.com/oh-my-fish/oh-my-fish?tab=readme-ov-file#installation
-* Everything zsh: https://github.com/ohmyzsh/ohmyzsh/wiki/Installing-ZSH
-    * OMZ: https://ohmyz.sh/
-
-Fundamentally, your choice of shell is an essential building block atop which
-the rest of your workflow is structured. Take some time to spice it up in ways
-that make sense to you, and you won't regret it!
-
----
-
 ## tmux
 
-A terminal multiplexer is a program that transparently "stands between" your
-active terminal connection and <i>K</i> spawned terminal sessions. With `tmux` you
-can start a session on a remote server, launch applications in that session,
-then detach and reattach from that session at will.
+When you dedicate a lot of time in your terminal, I think you pretty quickly realize it can become cumbersome. In the web browser you can create new tabs and swiftly `ALT-TAB` between them. You can bookmark and return to your workspace at will. And I guess there’s a parallel here – you can make a bunch of terminal windows, and that works… sort of. But you have to reopen everything with each new terminal instance.
+
+I found something much better. It does exactly what I want. It’s called [TMUX](https://tmuxcheatsheet.com/how-to-install-tmux/).
+
+`tmux` is a terminal multiplexer.
 
 <BlogPicture src="https://omniti.com/i/terminal_multiplexing_before_and_after-small.png" alt="Multiplexing Diagram" />
-In other words, ``tmux`` allows you to do everything within a single terminal
-application window. You can start
-and jump between several terminal instaces with hotkeys, and divide each
-instance into different panes. These terminal instances persist,
-even when the application is closed, then reopened.
 
-`tmux` is really cool and I recommend checking it out.
+A terminal multiplexer is a program which transparently “stands between” your active terminal connection and <i>K</i> spawned terminal sessions. With TMUX, you can start a session, open new windows and hotkey between them. You can detach and reattach to sessions at will. In other words, you can put a session down and pick it up later and it will be exactly how you left it. With a plugin, these sessions can even persist even across system restarts. 
+
+TMUX is really neat and if you plan on doing ANY work in the terminal, it saves an incredible amount of time. Install it.
 
 ### customization
-`tmux` looks for files at `~/.tmux.conf` or `~/.config/tmux.conf`. This is
-where you can customize the multiplexer, add a plugin manager, and add plugins
-and themes.
 
-Let me walk you through my config:
-
-```shell
-# (1)  we set up a keybind to source the file (i.e. reload after changes):
-unbind r
-bind r source-file ~/.tmux.conf \; display-message "Config reloaded..."
-
-# (2) we assign a <Leader> prefix key to <C-Space> or "Ctrl + Space"
-#     this keystoke preceeds any tmux related keybindings.
-set -g prefix C-Space
-set -g status-position top
-
-# (3) act like vim
-setw -g mode-keys vi
-bind-key h select-pane -L
-bind-key j select-pane -D
-bind-key k select-pane -U
-bind-key l select-pane -R
-
-# (4) make sure it utilizes the full range of colors
-set -ga terminal-overrides ',*256color*:smcup@:rmcup@'
-
-# (5) minimalism!
-set -g visual-activity off
-set -g visual-bell off
-set -g visual-silence off
-setw -g monitor-activity off
-set -g bell-action none
-
-# (6) plugin setup
-set -g @plugin 'tmux-plugins/tpm' # load our plugin manager tpm first 
-set -g @plugin 'tmux-plugins/tmux-sensible'
-# set -g @plugin 'catppuccin/tmux'
-set -g @plugin 'guedesfelipe/catppuccin_tmux#1.0.0' # our color scheme
-set -g @plugin 'tmux-plugins/tmux-resurrect' # tmux sessions persist after restart
-
-# (7) catppuccin color scheme customization
-set -g @catppuccin_window_right_separator "█ "
-set -g @catppuccin_window_number_position "right"
-set -g @catppuccin_window_middle_separator " | "
-
-set -g @catppuccin_window_default_fill "none"
-
-set -g @catppuccin_window_current_fill "all"
-
-set -g @catppuccin_status_modules_right "application session date_time"
-set -g @catppuccin_status_left_separator "█"
-set -g @catppuccin_status_right_separator "█"
-
-set -g @catppuccin_date_time_text "%Y-%m-%d %H:%M:%S"
-
-# initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
-```
-
-### installation & resources
-* Everything tmux: https://tmuxcheatsheet.com/
-* Catppuccin color scheme docs: https://github.com/catppuccin/tmux
-    * Another great color pallete is rose-pine: https://github.com/rose-pine/tmux
-
-Use `tmux`. It makes everything easier.
+When you start TMUX, the program looks for a .dotfile[^1] at `~/.tmux.conf`. This single plain-text file is where you can set up and “rice out”[^2] your multiplexer. You begin by adding a plugin manager, [tpm](https://github.com/tmux-plugins/tpm), and then using it to load a couple plugins and a nice theme[^3]. 
 
 ---
 
 ## Vim
 
-I have been using Vim for about two years. When Vim is mentioned, it's usually
-in one of two contexts: `vim` (the program) or Vim Motions. 
+I’ve been using Vim for about two years. When we mention Vim, it’s usually in one of two contexts: `vim` (the program), or Vim Motions.
 
 ### Vim Motions
-Everyone should use Vim Motions. They are extremely efficient. They are available
-in all major editors. 
+
+Everyone should use Vim Motions. They are extremely efficient. They’re available on all text editors and IDEs.
 
 ### Vim
-Vim the program isn't as univeral. My blind dart board toss is that ~80% of developers use Microsoft
-products like Visual Studio Code or JetBrains products like IntelliJ. These are 
-extremely valuable out-of-the-box editors and IDEs. However, a smaller subset
-prize modular customization and blazingly fast speed. These individuals usually
-begin with Vim and migrate to expanded forks of this 
+
+Vim, by contrast, is a highly configurable, extensible text editor built to make creating and changing any kind of text very efficient. 
+
+It was rather aptly put that: “Vim is the bliss of Ctrl C/V but applied to every facet of the text editor.” I think that's a really good way to describe it. Vim recognizes and eliminates the vast majority of typing inefficiencies. The result is blazingly fast precision.
+
+A contention I often receive is, “well, how do I debug in Vim?” You don’t. You have separate programs[^4]. Each program is good at what it does. If you build a hodgepodge of functionality you end up with an IDE and that’s precisely what I’m trying to escape. 
+
+I will concede, however,  that Vim is not beginner friendly. There’s a learning curve. However, Vim is exceptionally user friendly[^5]. Once you get the hang of things, and it clicks, it’s really, really fun to use. 
+
+A lot of people recommend learning Vim Motions on your current editor first before switching to Vim full time. I didn’t do this, but it’s the path most people take. I’m a bit weird. I like to cold turkey and learn things from the ground up right away. But that’s a digression. 
+
+### Neovim
+
+Vim’s extensibility takes it to the next level. Enter: Neovim. Taken from the Neovim Charter: 
+
+> Neovim is a refactor, and sometimes redactor, in the tradition of Vim.  It is not a rewrite but a continuation and extension of Vim. Many clones and derivatives exist, some very clever—but none are Vim. Neovim is built for users who want the good parts of Vim, and more.
+
+Neovim’s component-like plugin structure allows you to drop in and take out functionality easily. You can bring in an [LSP](https://github.com/neovim/nvim-lspconfig), [completions](https://github.com/hrsh7th/nvim-cmp), [snippets](https://github.com/L3MON4D3/LuaSnip), [git](https://github.com/tpope/vim-fugitive), and [testing](https://github.com/nvim-neotest/neotest) infrastructure. You can get new things too: [Treesitter](https://github.com/nvim-treesitter), [Telescope](https://github.com/nvim-telescope/telescope.nvim) FZF (fuzzy finding), Scoped grep string searches, and [Harpoon](https://github.com/ThePrimeagen/harpoon/tree/harpoon2) anchor points to jump around.
+
+What’s more, since YOU configure Neovim, you’ll come away with a complete understanding of how each tool works, and how they interact with one another to create a complete ecosystem. By contrast, other editors and IDEs abstract this away. 
+
+I know I just said a lot of words. The takeaway is this: With Neovim, you know exactly why everything works the way it does, and you can make it work exactly the way you want it to. The possibilities are, in fact, endless. 
+
+Want functionality but there's no plugin for it? Your config is in Lua and everything in Lua is easy. Make it, maintain it, push it to the Neovim community! The Neovim community is vibrant and full of passionate creators and maintainers who work hard to support the editor they love.
 
 ---
 
-## .dotfiles
+## Wrapping up
 
-Creation of a Dotfiles directory brings everything together by making your
-productivity workflow reproducible on any machine in just a few minutes.
+In exploring the minimalist, keyboard-centric workflow of command line tools and editors like Vim and Neovim, we uncover a significant truth about productivity in software development: simplicity and customization can profoundly enhance efficiency. By adopting tools such as Tmux and Vim, developers are equipped to create a highly personalized development environment. This environment not only streamlines tasks but also keeps the focus on coding, reducing distractions inherent in more complex IDEs. Embracing these tools may involve a learning curve, but the long-term gains in speed, understanding, and adaptability make this investment worthwhile. 
 
-Many programs store their configuration files in plain text files. These 
+For those willing to explore these command line utilities and text editors, the payoff is a more intuitive and efficient coding experience that aligns perfectly with the unique needs of each developer.
+
+And as always, remember:
+
+> Life is like Vim: There are a lot of shortcuts and you should take them.
+
+---
+
+[^1]: Many programs store their configuration files in plain text files. These 
 are usually (but not always) in your `~` or `~/.config/~` directories. Dotfiles
 are configuration files for various programs. What sets them apart
-from regular files and directories is their prefix: a dot (`.`). 
+from regular files and directories is their prefix: a dot (`.`).
+Note: On Unix based systems, dotfiles are hidden by the OS by default. 
 
-On Unix based systems, dotfiles are hidden by the OS by default. 
+[^2]: Ricing is a process in which one customizes their OS or programs to improve the aesthetics or refine their workflow.
+[^3]: I highly reccommend [rose-pine](https://github.com/rose-pine/tmux) or [catppuccin](https://github.com/catppuccin/tmux) (mocha).
+[^4]: In the case of debugging, one might opt for `gdb`, the browser, or the python debugger, etc.
+[^5]: I'm paraphrasing [ThePrimeagen](https://github.com/ThePrimeagen), a Neovim enjoyer and popular streamer.
 
-Some common dotfiles are: 
-* `.bash_profile` and `.bashrc` for the Bash shell
-* `.zshrc` for the Zsh shell
-* `.vimrc` for Vim (or `~/.config/nvim/`) for Neovim
-* `.tmux.conf` for Tmux
-* `.gitignore` and `.gitconfig` global defaults in `~`
-
-Gather up all of your configuration files and copy them into a Dotfiles
-directory. Now, a copy of everything is in the same place. Put that
-in a public[^4] GitHub repository. 
-
-You can expand on this by rerouting your programs to look for their config files
-within `~/.dotfiles` (or similar) instead of their defaults. You can
-make liberal use of scripting to automate all of this. In theory one or two
-scripts can get everything up and running.
-
-If you're curious, you can access my .dotfiles 
-[here](https://github.com/nicosalm/.dotfiles). It may not be up to date.
-
-
----
-
-## wrapping up
-
----
-
-[^1]: View any running shell process with `ps` or `echo $SHELL` to see your login (default) shell.
-
-[^2]: While `bash` has "arrays", it doesn't implement true array data structures.
-Under the hood [they are (index, value) linked lists](https://github.com/lucasscharenbroch/bash-with-floats/blob/master/array.c#L5). `zsh` implements true arrays capable of pointer arithmetic. With larger datasets, the difference in efficiency is notable.
-
-[^3]: This feature can be added to `zsh` with the `zsh-autosuggestions` plugin.
-
-[^4]: We opt for a public repository so you can clone it on any machine without
-needing to verify your GitHub credentials first.

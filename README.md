@@ -1,6 +1,6 @@
 # nicosalm.io
 
-This is my personal website, built with [Astro](https://astro.build)!
+This is my personal website, built with [Astro](https://astro.build).
 
 Inspired by [Nick Winans](https://github.com/Nicell)! 
 
